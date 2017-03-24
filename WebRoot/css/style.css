@@ -1,0 +1,104 @@
+body{
+	font-size:12px; 
+	font-family:Tahoma; 
+	color:#000000; 
+	margin:0; 
+	padding:0;
+	overflow:hidden;
+}
+
+.login{
+	position:absolute;
+	top: 0px; 
+	bottom: 0px;
+	left:0px;
+	right:0px;
+	background: url(../images/login_bg.png) no-repeat 0 0;
+
+}
+.Register{
+	position:absolute;
+	top: 0px; 
+	bottom: 0px;
+	left:0px;
+	right:0px;
+	background: url(../images/register_bg.png) no-repeat 0 0;
+	
+}
+.register1{
+	position:absolute;
+	top: 0px; 
+	bottom: 0px;
+	left:0px;
+	right:0px;
+	background: url(../images/register_bg1.png) no-repeat 0 0;
+}
+.form_info{
+	position:absolute;
+	width:300px;
+	height:150px;
+	top:38%;
+	left:38%;
+	float:right;
+	display:inline;
+}
+.register_info{
+	position: absolute;
+    width: 86%;
+    height: 66%;
+    top: 23%;
+    left: 40%;
+    float: right;
+    display: inline;
+}
+.register1_info{
+	position: absolute;
+    width: 36%;
+    height: 66%;
+    top: 6%;
+    left: 60%;
+    float: right;
+    display: inline;
+}
+.field{
+	margin:10px;
+}
+.field label{
+	float:left;
+	padding:6px;
+}
+.field input.text{
+	border:1px solid #c5c5c5;
+	padding:6px;
+	background:url(../images/field_text_bg.jpg) repeat-x left center;
+}
+.field .loginn{
+	background:url(../images/login_login.png) no-repeat left center;
+	border:none;
+	width:94px;
+	height:28px;
+	padding-left:1px;
+	cursor:pointer;
+}
+.field .register{
+	background:url(../images/login_register.png) no-repeat left center;
+	border:none;
+	width:94px;
+	height:28px;
+	cursor:pointer;
+}
+.field .register_ensure{
+	background:url(../images/login_ensure.png) no-repeat left center;
+	border:none;
+	width:94px;
+	height:28px;
+	cursor:pointer;
+}
+.field .register_quit{
+	background:url(../images/login_quit.png) no-repeat left center;
+	border:none;
+	width:94px;
+	height:28px;
+	cursor:pointer;
+}
+

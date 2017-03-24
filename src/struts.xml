@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <!DOCTYPE struts PUBLIC 
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<!-- 设置DMI是否开启 -->
+	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
+	<package name="p1" extends="struts-default">
+		<!-- 最优配置:事先约定好  约定优于配置 -->
+		<action name="*_*" class="com.swu.actions.{1}" method="{2}">
+		
+	
+			
+			<!-- 设置结果集类型为stream -->
+			<result type="stream" name="downLoad">
+				<!-- 设置文件的类型 -->
+				<param name="contentType">application/octet-stream</param>
+				<!-- 设置输入流的名字:对应action中的InputStream的属性名 -->
+				<param name="inputName">inputStream</param>
+				<!-- 设置内容响应方式;以附件响应,设置附件名 -->
+				<param name="contentDisposition">attachment;fileName=${fileName}</param>
+				<!-- 设置缓冲区大小,字节 -->
+				<param name="bufferSize">4069</param>
+			</result>
+		</action>
+	</package>
+		<package name="json-results" extends="json-default">
+		<global-results>
+			<!-- 结果默认全部用json编码 -->
+			<result type="json">
+				<param name="includeProperties">
+					json.*
+				</param> 
+				<param name="noCache">true</param>  
+       			<param name="ignoreHierarchy">false</param>  
+			</result>
+		</global-results>
+	</package>
+</struts>

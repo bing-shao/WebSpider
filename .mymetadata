@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="WebSpider"
+  id="myeclipse.1455757825120"
+  context-root="/WebSpider"
+  j2ee-spec="5.0"
+  archive="WebSpider.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

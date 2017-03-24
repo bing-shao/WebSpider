@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">  
+    <!-- proxool配置 -->
+  	<servlet id="Servlet_1">
+		<servlet-name>proxoolServletConfigurator</servlet-name>
+		<servlet-class>org.logicalcobwebs.proxool.configuration.ServletConfigurator</servlet-class>
+		<init-param>
+			<param-name>xmlFile</param-name>
+			<param-value>WEB-INF/proxool.xml</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet id="Servlet_2">
+		<servlet-name>Admin</servlet-name>
+		<servlet-class>org.logicalcobwebs.proxool.admin.servlet.AdminServlet</servlet-class>
+	</servlet>
+  
+    <!--过滤器配置-->
+    <!--Struts2过滤器配置-->
+	<filter>
+	  <filter-name>struts2</filter-name>
+	  <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
+	</filter>
+	<filter-mapping>
+	  <filter-name>struts2</filter-name>
+	  <url-pattern>/*</url-pattern>
+	</filter-mapping>
+    <filter>
+        <filter-name>struts-cleanup</filter-name>
+        <filter-class>
+            org.apache.struts2.dispatcher.ActionContextCleanUp
+        </filter-class>
+    </filter>  
+    <filter-mapping>
+        <filter-name>struts-cleanup</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    
+    <!-- 编码过滤器配置 -->
+    <filter>
+	  <filter-name>EncodeFilter</filter-name>
+	  <filter-class>com.swu.filter.EncodeFilter</filter-class>
+	</filter>
+	<filter-mapping>
+	  <filter-name>EncodeFilter</filter-name>
+	  <url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<!-- 登录过滤器 -->
+    <filter>
+  	<filter-name>LoginFilter</filter-name>
+  	<filter-class>com.swu.filter.LoginFilter</filter-class>
+  	<init-param>
+  		<param-name>passlist</param-name>
+  		<param-value>login.jsp,code.jsp,register.jsp,findPwdQ.jsp,findPwdE.jsp</param-value>
+  	</init-param>
+    </filter>
+	<filter-mapping>
+  	<filter-name>LoginFilter</filter-name>
+  	<url-pattern>*.jsp</url-pattern>
+  	</filter-mapping>
+  	
+  	<!-- 404页面配置 -->
+	<error-page>  
+	    <error-code>404</error-code>  
+	    <location>/404.jsp</location>  
+	</error-page>  
+	
+ 	<!-- 500页面配置 -->
+	<error-page>  
+	    <error-code>500</error-code>  
+	    <location>/error.jsp</location>  
+	</error-page> 
+	
+	<!-- 首页 -->
+	<welcome-file-list>
+	  <welcome-file>login.jsp</welcome-file>
+	</welcome-file-list>
+</web-app>

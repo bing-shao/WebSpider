@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="GBK"?>
+<something-else-entirely>
+	<proxool>
+		<alias>DBPool</alias>
+		<!--proxool只能管理由自己产生的连接scan-kakoudb.gat.fj:1521/kakousrv2-->
+		<driver-url>jdbc:oracle:thin:@127.0.0.1:1521:orcl</driver-url>
+		<!--proxool只能管理由自己产生的连接-->
+		<driver-class>oracle.jdbc.driver.OracleDriver</driver-class>
+		<driver-properties>
+			<property name="user" value="cms" />
+			<property name="password" value="cms" />
+		</driver-properties>
+		<!--测试数据库连接是否存在-->
+		<house-keeping-test-sql>select 1 from dual</house-keeping-test-sql>
+		<!--proxool自动侦察各个连接状态的时间间隔(毫秒),侦察到空闲的连接就马上回收,超时的销毁-->
+		<house-keeping-sleep-time>90000</house-keeping-sleep-time>
+		<!-- 指因未有空闲连接可以分配而在队列中等候的最大请求数,超过这个请求数的用户连接就不会被接受-->
+		<proxool.simultaneous-build-throttle>100</proxool.simultaneous-build-throttle>
+		<!-- 最少保持的空闲连接数--> 	
+		<prototype-count>8</prototype-count>
+		<!--
+			允许最大连接数,超过了这个连接，再有请求时，就排在队列中等候，最大的等待请求数由maximum-new-connections决定
+		-->
+		<maximum-connection-count>50</maximum-connection-count>
+		<!-- 最小连接数-->
+		<minimum-connection-count>10</minimum-connection-count>
+		<!--最大活动时间 默认5分钟(单位：毫秒)-->
+		<maximum-active-time>300000</maximum-active-time>
+		<!-- 任一时刻，可以（同时）建立的最大连接数-->
+		<simultaneous-build-throttle>60</simultaneous-build-throttle>
+	</proxool>
+	 
+</something-else-entirely>
